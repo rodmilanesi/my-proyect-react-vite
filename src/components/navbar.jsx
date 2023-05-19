@@ -4,6 +4,7 @@ import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
 import NavDropdown from "react-bootstrap/NavDropdown";
 import logo from "../assets/img/div.svg";
+import cartWidthget from "../assets/img/carro-de-la-carretilla.png";
 
 function MyNavbar() {
   return (
@@ -21,23 +22,28 @@ function MyNavbar() {
               <Nav.Link>Home</Nav.Link>
             </LinkContainer>
 
-            <Nav.Link href="#pricing">P</Nav.Link>
             <NavDropdown title="Productos" id="collasible-nav-dropdown">
-              <NavDropdown.Item href="#action/3.1">Teclados</NavDropdown.Item>
-              <NavDropdown.Item href="#action/3.2">
-                Escritorios
-              </NavDropdown.Item>
-              <NavDropdown.Item href="#action/3.3">Sillas</NavDropdown.Item>
+              <LinkContainer to="/category/teclados">
+                <NavDropdown.Item>Teclados</NavDropdown.Item>
+              </LinkContainer>
+              <LinkContainer to="/category/escritorios">
+                <NavDropdown.Item>Escritorios</NavDropdown.Item>
+              </LinkContainer>
+              <LinkContainer to="/category/sillas">
+                <NavDropdown.Item>Sillas</NavDropdown.Item>
+              </LinkContainer>
               <LinkContainer to="/category/monitores">
                 <NavDropdown.Item>Monitores</NavDropdown.Item>
               </LinkContainer>
             </NavDropdown>
           </Nav>
           <Nav>
-            <Nav.Link href="#deets">More deets</Nav.Link>
-            <Nav.Link eventKey={2} href="#memes">
-              Dank memes
-            </Nav.Link>
+            <Nav></Nav>
+            <LinkContainer to="/cart">
+              <Nav.Link>
+                <img src={cartWidthget} alt="" />
+              </Nav.Link>
+            </LinkContainer>
           </Nav>
         </Navbar.Collapse>
       </Container>

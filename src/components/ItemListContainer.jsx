@@ -14,17 +14,19 @@ const ItemListContainer = () => {
   }
 
   return (
-    <div className="cards">
-      {items.map((product) => (
-        <Item
-          key={product.id}
-          name={product.nombre}
-          price={product.precio}
-          img={product.img}
-          id={product.id}
-        />
-      ))}
-    </div>
+    <>
+      <div className="cardsContainer">
+        {items.map((product) => (
+          <Item
+            key={product.id}
+            name={product.nombre}
+            price={product.precio}
+            img={product.img}
+            id={product.id}
+          />
+        ))}
+      </div>
+    </>
   );
 };
 

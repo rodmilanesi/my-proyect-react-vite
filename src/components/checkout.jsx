@@ -1,15 +1,19 @@
-
-import { Link } from 'react-router-dom'
-
+import { Link } from "react-router-dom";
 
 const Checkout = () => {
   return (
-    <div>Este es el CheckOut Importado
-    <Link to = "/">
+    <div className="checkoutContainer">
+      <p>Este es el CheckOut Importado</p>
+      <div className="buttonCart">
+        <Link to="/">
           <button>Home</button>
-    </Link>
+        </Link>
+        <Link to="/cart">
+          <button>Volver</button>
+        </Link>
+      </div>
     </div>
-  )
-}
+  );
+};
 
-export default Checkout
+export default Checkout;

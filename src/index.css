@@ -51,3 +51,30 @@ body {
     color:#333;
     text-shadow: 2px 2px 2px #5D066B;  }
 
+    .cardsContainer{
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        gap: 10px;
+        justify-content: center;
+        margin-top: 20px;
+    }
+    .cartContainer {
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        text-align: center;
+        flex-direction: column;
+    }
+    .buttonCart{
+        display: flex;
+        justify-content: space-around;
+    }
+    .checkoutContainer{
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        text-align: center;
+        flex-direction: column;
+    }
+
