@@ -5,8 +5,12 @@ import Navbar from "react-bootstrap/Navbar";
 import NavDropdown from "react-bootstrap/NavDropdown";
 import logo from "../assets/img/div.svg";
 import cartWidthget from "../assets/img/carro-de-la-carretilla.png";
+import { Context } from "../context/cartContext";
+import { useContext } from "react";
 
 function MyNavbar() {
+  const { spanItem } = useContext(Context);
+
   return (
     <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
       <Container>
@@ -42,6 +46,7 @@ function MyNavbar() {
             <LinkContainer to="/cart">
               <Nav.Link>
                 <img src={cartWidthget} alt="" />
+                <span>{spanItem}</span>
               </Nav.Link>
             </LinkContainer>
           </Nav>

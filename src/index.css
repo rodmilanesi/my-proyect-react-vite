@@ -1,41 +1,56 @@
 body {
-    font-family: Arial, sans-serif;
-    background: linear-gradient(to bottom, #800080, #5dc1b9);
-    margin: 0;
-    padding: 0;
-  }
+  font-family: Arial, sans-serif;
+  background: linear-gradient(to bottom, #800080, #5dc1b9);
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+}
+.cardsContainer{
+  min-height: 90vh;
+}
+
+.loaderPage{
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
   
-  .containerItem {
-    max-width: 1200px;
-    height: auto;
-    margin: 0 auto;
-    padding: 20px;
-    align-items: center;
-    display: flex;
-    justify-content: center;
+.containerItem {
+  max-width: 1200px;
+  min-height: 100vh;
+  margin: 0 auto;
+  padding: 20px;
+  align-items: center;
+  display: flex;
+  justify-content: center;
 
 }
-  .features {
-    display: flex;
-    /* align-items: center; */
-    
-  }
+.features {
+  display: flex; 
+}
   
-  .feature {
+.feature {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
     background:white;
     padding: 20px;
     text-align: center;
     height: auto;
-    /* align-items: center; */
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  }
+}
   
-  .feature img {
+  .feature > img {
     width: 90%;
     max-width: 500px;
     height: auto;
     margin-bottom: 20px;
+    
+
   }
+
+
   
   .nameProduct {
     font-size: 24px;
@@ -49,7 +64,8 @@ body {
     font-weight: 600;
     font-size: 30px;
     color:#333;
-    text-shadow: 2px 2px 2px #5D066B;  }
+    text-shadow: 2px 2px 2px #5D066B;  
+  }
 
     .cardsContainer{
         display: flex;
@@ -62,9 +78,83 @@ body {
     .cartContainer {
         height: 100vh;
         display: flex;
+        align-items: center;
         justify-content: center;
         text-align: center;
         flex-direction: column;
+        
+    }
+    .cartSummary {
+      display: flex;
+      flex-direction: column;
+      height: auto;
+      background-color: #FFF;
+      width: 90%;
+      justify-content: space-around;
+      border-radius: 15px;
+      align-items: center;
+    }
+    .cartModal{
+      display: flex;
+      flex-direction: row;  
+      justify-content: space-around;
+      width: 90%; 
+    }
+    .shoppingCart {
+      display: flex;
+      flex-direction: column;
+      width: 70%;
+      padding-top: 20px;
+    }
+    .headerShoppingCart{
+      display: flex;
+      justify-content: space-between;
+    }
+    .headerShoppingCart h4 {
+      color: #666565;
+    }
+    .bodyShoppingCart{
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .shoppingCards{
+      background-color: blue;
+
+      display: flex;
+      flex-direction: row;
+      justify-content: space-around;
+      align-items: center;
+    }
+    .shoppingCards h3 {
+      width: 250px;
+    }
+
+  .bodyShoppingCart input {
+    all: unset;
+    border-radius: 10px;
+    border-color: #5D066B;
+    font-size: 23px;
+    color: #5dc1b9;
+    width: 90px;
+  }
+    .buttonModal{
+      all: unset;
+      background-color: rgba(0, 0, 0, 0.0);
+      font-size: 20px;
+      padding: 10px;
+      color: #800080;
+    }
+
+
+    .summary{
+      background-color: #5dc1b9;
+
+      padding-top: 20px;
+      display: flex;
+      flex-direction: column;
+      width: 28%;
     }
     .buttonCart{
         display: flex;
@@ -77,4 +167,56 @@ body {
         text-align: center;
         flex-direction: column;
     }
+    .callToAction {
+      display: flex;
+      flex-direction: column;
+    }
+    .pushCartButton {
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      gap: 40%;
+      margin-top: 20px;
+    }
 
+/*Thank You Page Css*/
+.thankPage{
+  display: flex;
+  justify-content: center;
+  padding: 10px;
+  width: 100%;
+  height: 100vh; 
+  background-image: url(https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/7a4f2faf-7d57-48f8-8b4e-ea655774db6b/ddrfu5v-8497eeac-ad03-4abf-957a-63159599231e.jpg/v1/fill/w_1192,h_670,q_70,strp/ultimate_gaming_wallpaper_by_jacktheknight_ddrfu5v-pre.jpg?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7ImhlaWdodCI6Ijw9MTA4MCIsInBhdGgiOiJcL2ZcLzdhNGYyZmFmLTdkNTctNDhmOC04YjRlLWVhNjU1Nzc0ZGI2YlwvZGRyZnU1di04NDk3ZWVhYy1hZDAzLTRhYmYtOTU3YS02MzE1OTU5OTIzMWUuanBnIiwid2lkdGgiOiI8PTE5MjAifV1dLCJhdWQiOlsidXJuOnNlcnZpY2U6aW1hZ2Uub3BlcmF0aW9ucyJdfQ.bf1nqWnsNwZ1xKKyTEbcrrWf4-8nY1C5rgSIe3oh7QM);
+  
+}
+.thankContainer{
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.thankPageContainer{
+  background-color: rgba(240, 248, 255, 0.9);
+  width: 95%;
+  border-radius: 20px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+}
+.thankPageContainer hr {
+  margin: 20px;
+}
+.headerThankYou {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  text-align: center;
+  width: 100%;
+}
+.bodyThankPage{
+  display: flex;
+
+}

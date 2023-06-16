@@ -4,7 +4,7 @@ export const productos = [
     nombre: "Monitor Ultra WQHD Curve",
     precioReferencia: 999990,
     precio: 549990,
-    img: "https://ripleycl.imgix.net/https%3A%2F%2Fs3-us-west-2.amazonaws.com%2Fim-prod-products-images%2F25474-6060-ls34a650uxlxzs-71193e14-dd8d-494b-87fb-26e4028d1f03.jpg?w=750&h=555&ch=Width&auto=format&cs=strip&bg=FFFFFF&q=60&trimcolor=FFFFFF&trim=color&fit=fillmax&ixlib=js-1.1.0&s=a433c3559f6bc49b6f1fbc82fe7c77d7",
+    img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSJF-T1JQjia6Go1YM1wmgO3v85GtGRoIIka0t7-s-IFCae2uiGFdaXoJHkN59Vi9rIgbQ&usqp=CAU",
     cantidad: 1,
     category: "monitores",
     description:
