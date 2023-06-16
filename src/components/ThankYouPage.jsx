@@ -1,5 +1,3 @@
-import React from "react";
-
 const ThankYouPage = () => {
   return (
     <div className="thankPage">
@@ -7,16 +5,14 @@ const ThankYouPage = () => {
         <div className="thankPageContainer">
           <div className="headerThankYou">
             <h1>Gracias por tu Compra</h1>
-            <div className="idOrder">
-              <h4>El Id de tu compra es:</h4>
-              <p>
-                <b>asdasdasd</b>
-              </p>
-            </div>
           </div>
           <hr />
           <div className="bodyThankPage">
-            <h3>Tus Elementos son: </h3>
+            <h4>
+              Tus productos son imprtantes para nosotros, prepararemos tu orden
+              en menos de lo que te imaginas y podar disfrutar de ellos lo más
+              pronto posible!.
+            </h4>
           </div>
         </div>
       </div>
