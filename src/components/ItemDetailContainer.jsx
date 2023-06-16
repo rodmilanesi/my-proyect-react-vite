@@ -51,6 +51,14 @@ const ItemDetailContainer = () => {
     addItems({ ...prod, quantity });
   };
 
+  function handleBuyProduct() {
+    const productExist = productsAdded.find((product) => product.id === itemId);
+
+    if (!productExist) {
+      addProductToCart(product, inputValue);
+    }
+  }
+
   return (
     <div className="containerItem">
       <section className="features">
@@ -81,8 +89,10 @@ const ItemDetailContainer = () => {
               >
                 Agregar
               </Button>
-              <LinkContainer to="">
-                <Button variant="success">Comprar</Button>
+              <LinkContainer to="/cart">
+                <Button variant="success" onClick={handleBuyProduct}>
+                  Comprar
+                </Button>
               </LinkContainer>
             </div>
           </div>

@@ -4,7 +4,6 @@ export const Context = createContext([]);
 
 export const CustomProvider = ({ children }) => {
   const [productsAdded, setProductsAdded] = useState([]);
-  const [loading, setLoading] = useState(true);
 
   const addItems = (product) => {
     const productOnCart = structuredClone(productsAdded);
@@ -19,20 +18,40 @@ export const CustomProvider = ({ children }) => {
     }
   };
 
+  const changeQuantityByProduct = (id, quantity) => {
+    const productOnCart = structuredClone(productsAdded);
+    const productOnCartIndex = productOnCart.findIndex(
+      (prod) => prod.id === id
+    );
+    productOnCart[productOnCartIndex].quantity = quantity;
+    setProductsAdded(productOnCart);
+  };
+
   const spanItem = productsAdded.reduce((acc, currrentItem) => {
     return acc + currrentItem.quantity;
   }, 0);
 
-  const value = { productsAdded, addItems, spanItem };
+  const totalCart = productsAdded.reduce((acc, product) => {
+    return acc + product.price * product.quantity;
+  }, 0);
 
   const deleteCart = () => {
     setProductsAdded([]);
   };
 
-  const loader = () => {
-    if (loading) {
-      return <span></span>;
-    }
+  const deleteProduct = (id) => {
+    const updateProduct = productsAdded.filter((product) => product.id !== id);
+    setProductsAdded(updateProduct);
+  };
+
+  const value = {
+    productsAdded,
+    addItems,
+    spanItem,
+    deleteProduct,
+    deleteCart,
+    totalCart,
+    changeQuantityByProduct,
   };
 
   return <Context.Provider value={value}>{children}</Context.Provider>;

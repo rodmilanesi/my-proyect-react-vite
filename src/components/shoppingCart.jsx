@@ -1,43 +1,49 @@
-import { useState } from "react";
+import { useContext } from "react";
 import { formatPrice } from "../lib/utils";
 import { LinkContainer } from "react-router-bootstrap";
+import { Context } from "../context/cartContext";
 
 const ShoppingCart = ({ id, title, price, img, quantity }) => {
-  const [prodQuantity, setProdQuantity] = useState(quantity);
+  const { deleteProduct, changeQuantityByProduct } = useContext(Context);
 
   const add = () => {
-    if (prodQuantity >= 1) {
-      setProdQuantity(prodQuantity + 1);
+    if (quantity >= 1) {
+      changeQuantityByProduct(id, quantity + 1);
     }
   };
 
   const subtract = () => {
-    if (prodQuantity > 1) {
-      setProdQuantity(prodQuantity - 1);
+    if (quantity > 1) {
+      changeQuantityByProduct(id, quantity - 1);
     }
+  };
+
+  const dlt = () => {
+    deleteProduct(id);
   };
 
   return (
     <div className="shoppingCards">
       <LinkContainer to={`/item/${id}`}>
-        <img src={img} width={160} />
+        <img src={img} width={130} />
       </LinkContainer>
       <div>
         <h4 style={{ width: 200 }}>{title}</h4>
         <p>{formatPrice(price)}</p>
       </div>
-      <div>
+      <div className="quantityItemCart">
         <button className="buttonModal" onClick={subtract}>
           -
         </button>
-        <input type="text" value={prodQuantity} />
-
+        <span>{quantity}</span>
         <button className="buttonModal" onClick={add}>
           +
         </button>
       </div>
-      <h3>{formatPrice(price * prodQuantity)}</h3>
-      <span>x</span>
+      <h3>{formatPrice(price * quantity)}</h3>
+      <h2 style={{ cursor: "pointer" }} onClick={dlt}>
+        x
+      </h2>
     </div>
   );
 };

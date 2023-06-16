@@ -31,153 +31,255 @@ body {
 }
   
 .feature {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    background:white;
-    padding: 20px;
-    text-align: center;
-    height: auto;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  border-radius: 15px;
+  background:white;
+  padding: 20px;
+  text-align: center;
+  height: auto;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
   
-  .feature > img {
-    width: 90%;
-    max-width: 500px;
-    height: auto;
-    margin-bottom: 20px;
-    
+.feature > img {
+  width: 90%;
+  max-width: 500px;
+  height: auto;
+  margin-bottom: 20px;
+}
 
-  }
+.nameProduct {
+  font-size: 24px;
+  color: #333;
+  margin-bottom: 20px;
+}
+.descriptionProduct{
+  max-width: 500px;
+}
+.priceProduct{
+  font-weight: 600;
+  font-size: 30px;
+  color:#333;
+  text-shadow: 2px 2px 2px #5D066B;  
+}
 
+/*Cart CSS*/
 
+.cardsContainer{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: center;
+  margin-top: 20px;
+}
   
-  .nameProduct {
-    font-size: 24px;
-    color: #333;
-    margin-bottom: 20px;
-  }
-  .descriptionProduct{
-    max-width: 500px;
-  }
-  .priceProduct{
-    font-weight: 600;
-    font-size: 30px;
-    color:#333;
-    text-shadow: 2px 2px 2px #5D066B;  
-  }
 
-    .cardsContainer{
-        display: flex;
-        flex-direction: row;
-        flex-wrap: wrap;
-        gap: 10px;
-        justify-content: center;
-        margin-top: 20px;
-    }
-    .cartContainer {
-        height: 100vh;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        text-align: center;
-        flex-direction: column;
-        
-    }
-    .cartSummary {
-      display: flex;
-      flex-direction: column;
-      height: auto;
-      background-color: #FFF;
-      width: 90%;
-      justify-content: space-around;
-      border-radius: 15px;
-      align-items: center;
-    }
-    .cartModal{
-      display: flex;
-      flex-direction: row;  
-      justify-content: space-around;
-      width: 90%; 
-    }
-    .shoppingCart {
-      display: flex;
-      flex-direction: column;
-      width: 70%;
-      padding-top: 20px;
-    }
-    .headerShoppingCart{
-      display: flex;
-      justify-content: space-between;
-    }
-    .headerShoppingCart h4 {
-      color: #666565;
-    }
-    .bodyShoppingCart{
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-    }
+.cartContainer {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  flex-direction: column;
+}
 
-    .shoppingCards{
-      background-color: blue;
-
-      display: flex;
-      flex-direction: row;
-      justify-content: space-around;
-      align-items: center;
-    }
-    .shoppingCards h3 {
-      width: 250px;
-    }
-
-  .bodyShoppingCart input {
-    all: unset;
-    border-radius: 10px;
-    border-color: #5D066B;
-    font-size: 23px;
-    color: #5dc1b9;
-    width: 90px;
-  }
-    .buttonModal{
-      all: unset;
-      background-color: rgba(0, 0, 0, 0.0);
-      font-size: 20px;
-      padding: 10px;
-      color: #800080;
-    }
+.cartSummary {
+  display: flex;
+  flex-direction: column;
+  height: auto;
+  background-color: rgba(240, 248, 255, 0.9);
+  width: 90%;
+  justify-content: space-around;
+  border-radius: 15px;
+  align-items: center;
+  margin: 10px;
+  padding: 5px;
+}
 
 
-    .summary{
-      background-color: #5dc1b9;
+.cartModal{
+  display: flex;
+  flex-direction: row;  
+  justify-content: space-around;
+  width: 90%; 
+}
 
-      padding-top: 20px;
-      display: flex;
-      flex-direction: column;
-      width: 28%;
-    }
-    .buttonCart{
-        display: flex;
-        justify-content: space-around;
-    }
-    .checkoutContainer{
-        height: 100vh;
-        display: flex;
-        justify-content: center;
-        text-align: center;
-        flex-direction: column;
-    }
-    .callToAction {
-      display: flex;
-      flex-direction: column;
-    }
-    .pushCartButton {
-      display: flex;
-      flex-direction: row;
-      justify-content: center;
-      gap: 40%;
-      margin-top: 20px;
-    }
+.shoppingCart {
+  display: flex;
+  flex-direction: column;
+  width: 70%;
+  padding-top: 20px;
+}
+
+.headerShoppingCart{
+  display: flex;
+  justify-content: space-between;
+}
+
+.headerShoppingCart h4 {
+  color: #666565;
+}
+
+.bodyShoppingCart{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.shoppingCards{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  align-items: center;
+  margin-bottom: 5px;
+}
+
+.shoppingCards h3 {
+  width: 120px;
+  font-size: 20px;
+  color:#333;
+  text-shadow: 1px 1px 1px #5D066B;  
+}
+.quantityItemCart {
+  display: flex;
+  flex-direction: row;
+  width: 100px;
+  justify-content: center;
+  align-items: center;
+}
+
+.bodyShoppingCart span {
+  all: unset;
+  border-radius: 10px;
+  font-size: 23px;
+  color: #5dc1b9;
+  width : 90px;
+    
+}  
+
+.buttonModal{
+  all: unset;
+  background-color: rgba(0, 0, 0, 0.0);
+  font-size: 20px;
+  padding: 15px;
+  color: #800080;
+  text-shadow: 1px 1px 1px #5D066B; 
+}
+
+.summary{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 100px;
+}
+.headerSummary{
+  
+}
+
+.dltButtonCart{
+  display: flex;
+  justify-content: flex-end;
+}
+
+.buttonCart{
+  display: flex;
+  justify-content: space-between;
+  width: 80%;
+  margin-top: 15px;
+  padding-bottom: 10px;
+}
+
+.checkoutContainer{
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  flex-direction: column;  
+}
+
+.callToAction {
+  display: flex;
+  flex-direction: column;
+}
+
+.pushCartButton {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  gap: 40%;
+  margin-top: 20px;
+}
+
+/*CheckOut Page*/
+
+.checkoutContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 15px;
+}
+
+.formCheckout{
+  display: flex;
+  flex-direction: row;
+  background-color: rgba(240, 248, 255, 0.8);
+  justify-content: center;
+  align-items: center;
+  width: 80%;
+  border-radius: 15px;
+}
+
+.formCheckout label {
+  align-items: start;
+  padding: 10px;
+  font-size: 25px;
+  
+}
+
+.form{
+
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+  justify-content: center ;
+  text-align: start;
+  padding: 30px
+  
+}
+.form input{
+  width: 400px;
+  text-align: center;
+  border-radius: 5px;
+  border: 0.5px;
+}
+
+.shippingPay {
+  margin-top : 30px;
+  margin-bottom: 30px;
+  padding: 20px;
+}
+
+.form button{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color:green;
+  width: 100px;
+  border-radius: 5px;
+  color: #fff;
+}
+
+.submitButton {
+  display: flex;
+  justify-content: center;
+  
+}
+
+
+
 
 /*Thank You Page Css*/
 .thankPage{
@@ -218,5 +320,4 @@ body {
 }
 .bodyThankPage{
   display: flex;
-
 }

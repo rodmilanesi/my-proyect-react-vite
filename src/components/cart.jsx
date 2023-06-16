@@ -3,47 +3,10 @@ import { Context } from "../context/cartContext";
 import { useContext } from "react";
 import ShoppingCart from "./shoppingCart";
 import SummaryCart from "./SummaryCart";
-import {
-  collection,
-  addDoc,
-  getFirestore,
-  doc,
-  updateDoc,
-} from "firebase/firestore";
+import Button from "react-bootstrap/Button";
 
 const Cart = () => {
-  const { productsAdded, spanItem } = useContext(Context);
-  const dataBase = getFirestore();
-
-  function updateOrder(productId, finalStock) {
-    const itemRef = doc(dataBase, "items", productId);
-    updateDoc(itemRef, { stock: finalStock }).catch((error) =>
-      console.lof({ error })
-    );
-  }
-
-  function sendOrder() {
-    const collectionRef = collection(dataBase, "orders");
-    const total = productsAdded.reduce(
-      (acc, product) => acc + product.quantity * product.price,
-      0
-    );
-
-    const order = {
-      buyer: { name: "Rodri", email: "rodri@gmail.com", phone: "+56987654321" },
-      item: productsAdded,
-      total,
-    };
-
-    addDoc(collectionRef, order)
-      .then(() => {
-        productsAdded.map((product) => {
-          const finalStock = product.stock - product.quantity;
-          updateOrder(product.id, finalStock);
-        });
-      })
-      .catch((error) => console.log({ error }));
-  }
+  const { productsAdded, spanItem, deleteCart } = useContext(Context);
 
   return (
     <div className="cartContainer">
@@ -67,24 +30,22 @@ const Cart = () => {
                   id={product.id}
                 />
               ))}
-              <div>
-                <button variant="success">Vaciar Carrito</button>
+              <hr />
+              <div className="dltButtonCart">
+                <Button variant="primary" onClick={deleteCart}>
+                  Vaciar Carrito
+                </Button>
               </div>
             </div>
           </div>
-          <div className="summary">
-            <div>
-              <h2>Resumen de Compra</h2>
-            </div>
-            <SummaryCart />
-          </div>
+          <SummaryCart />
         </div>
         <div className="buttonCart">
           <Link to="/">
-            <button>Seguir Comprando</button>
+            <Button variant="primary">Seguir Comprando</Button>
           </Link>
           <Link to="/checkout">
-            <button>Ir a Pagar</button>
+            <Button variant="success">Ir a Pagar</Button>
           </Link>
         </div>
       </div>

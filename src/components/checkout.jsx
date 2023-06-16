@@ -1,4 +1,5 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import logo from "../assets/img/div.svg";
 import {
   collection,
   addDoc,
@@ -6,31 +7,44 @@ import {
   doc,
   updateDoc,
 } from "firebase/firestore";
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
 import { Context } from "../context/cartContext";
+import { formatPrice } from "../lib/utils";
+import Button from "react-bootstrap/Button";
+
+const delivery = {
+  standard: 3500,
+  fasted: 8500,
+  store: 0,
+};
 
 const Checkout = () => {
+  const navigate = useNavigate();
   const { productsAdded, deleteCart } = useContext(Context);
   const dataBase = getFirestore();
 
   function updateOrder(productId, finalStock) {
     const itemRef = doc(dataBase, "items", productId);
     updateDoc(itemRef, { stock: finalStock }).catch((error) =>
-      console.lof({ error })
+      console.log({ error })
     );
   }
 
-  function sendOrder({ name, email, phone }) {
+  function sendOrder({ name, email, phone, shipping }) {
     const collectionRef = collection(dataBase, "orders");
     const total = productsAdded.reduce(
       (acc, product) => acc + product.quantity * product.price,
       0
     );
+    const totalOrder = total + delivery[shipping];
+
+    console.log(totalOrder);
 
     const order = {
       buyer: { name: name, email: email, phone: phone },
       item: productsAdded,
-      total,
+      shipping,
+      total: totalOrder,
     };
 
     addDoc(collectionRef, order)
@@ -51,15 +65,22 @@ const Checkout = () => {
       name: event.target.buyerName.value,
       email: event.target.buyerMail.value,
       phone: event.target.buyerPhone.value,
+      shipping: event.target.selectDelivery.value,
     };
+
     sendOrder(buyerOrder);
-    console.log(event.target.buyerName.value);
   };
+
+  useEffect(() => {
+    if (productsAdded.length === 0) {
+      navigate("/");
+    }
+  }, []);
 
   return (
     <div className="checkoutContainer">
-      <div>
-        <form onSubmit={handleOnSubmit}>
+      <div className="formCheckout">
+        <form onSubmit={handleOnSubmit} className="form">
           <label htmlFor="buyerName">Nombre Completo</label>
           <input
             type="text"
@@ -83,15 +104,33 @@ const Checkout = () => {
             name="buyerPhone"
           />
 
-          <button type="submit">Pagar</button>
+          <div className="shippingPay">
+            <h3>Tipo de Envío</h3>
+            <select name="selectDelivery" id="">
+              <option value="standard">
+                Standard-Delivery - {formatPrice(3500)}
+              </option>
+              <option value="fasted">
+                Fasted-Delivery - {formatPrice(8500)}
+              </option>
+              <option value="store">Retiro en Tienda - {formatPrice(0)}</option>
+            </select>
+          </div>
+          <div className="submitButton">
+            <button type="submit">Pagar</button>
+          </div>
         </form>
+        <div>
+          <img src={logo} alt="logo" width="400" />
+        </div>
       </div>
+
       <div className="buttonCart">
         <Link to="/">
-          <button>Seguir Comprando</button>
+          <Button variant="primary">Seguir Comprando</Button>
         </Link>
         <Link to="/cart">
-          <button>Volver al carrito</button>
+          <Button variant="primary">Volver al carrito</Button>
         </Link>
       </div>
     </div>
