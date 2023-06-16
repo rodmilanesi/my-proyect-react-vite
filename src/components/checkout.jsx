@@ -69,6 +69,7 @@ const Checkout = () => {
     };
 
     sendOrder(buyerOrder);
+    navigate("/thankyoupage");
   };
 
   useEffect(() => {
