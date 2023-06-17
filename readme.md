@@ -18,6 +18,8 @@
 - react-router-bootstrap: "^0.26.2"
 - react-router-dom: "^6.11.1"
 
+##### Adicionalmente, se utiliza un archivo utils.js para darle formato al los precios de los productos en modena Chilena.
+
 ### Para arrancar el proyecto se requiere
 
 _**Node.js** versión 14.18+ y 16+_
@@ -33,14 +35,6 @@ _NOTA: recuerda ingresar este comando en el posicionamiento de la carpeta raiz d
 > Se realiza proyecto de e-commerce para empresa de venta de proyectos gamer y developers, con la finalidad de entregaruna plataforma interactiva e intuitiva para los clientes de la marca.
 >
 > > La ideología de la marca es hablar sobre un proyecto cercano a los jovenes y que pueda ser de fácil engachmen para personas que gusten de los video juegos y de mantener una configuración de escritorio llamatíva, cómoda y de gran prestigio.
-
-### Ordered
-
-1. Item 1
-1. Item 2
-1. Item 3
-1. Item 3a
-1. Item 3b
 
 ## Creador del Proyecto
 
