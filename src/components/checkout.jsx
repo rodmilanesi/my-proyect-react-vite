@@ -38,8 +38,6 @@ const Checkout = () => {
     );
     const totalOrder = total + delivery[shipping];
 
-    console.log(totalOrder);
-
     const order = {
       buyer: { name: name, email: email, phone: phone },
       item: productsAdded,

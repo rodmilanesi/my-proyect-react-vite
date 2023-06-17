@@ -57,6 +57,14 @@ body {
 .descriptionProduct{
   max-width: 500px;
 }
+.callToAction input {
+  all: unset;
+  border-radius: 10px;
+  font-size: 23px;
+  color: #5dc1b9;
+  width : 90px;
+    
+}
 .priceProduct{
   font-weight: 600;
   font-size: 30px;

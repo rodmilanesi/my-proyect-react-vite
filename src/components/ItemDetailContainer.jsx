@@ -69,7 +69,9 @@ const ItemDetailContainer = () => {
           <div className="callToAction">
             <span className="priceProduct">{formatPrice(product.price)}</span>
             <div>
-              <button onClick={subtract}>-</button>
+              <button className="buttonModal" onClick={subtract}>
+                -
+              </button>
               <input
                 type="number"
                 value={inputValue}
@@ -78,7 +80,9 @@ const ItemDetailContainer = () => {
                 }}
               />
 
-              <button onClick={add}>+</button>
+              <button className="buttonModal" onClick={add}>
+                +
+              </button>
             </div>
             <div className="pushCartButton">
               <Button
